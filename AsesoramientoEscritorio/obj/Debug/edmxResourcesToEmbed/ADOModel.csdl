@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ADOModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ADOModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Usuarios" EntityType="ADOModel.Usuario" />
+    <EntitySet Name="AsesoresVocacionales" EntityType="ADOModel.Asesor" />
+    <EntitySet Name="OfertasAcademicas" EntityType="ADOModel.OfertaAcademica" />
+    <EntitySet Name="RegistrosDePruebasDeAptitudes" EntityType="ADOModel.ResultadoDePrueba" />
+    <EntitySet Name="Departamentos" EntityType="ADOModel.Departamento" />
+    <EntitySet Name="Municipios" EntityType="ADOModel.Municipio" />
+    <AssociationSet Name="DepartamentoMunicipio" Association="ADOModel.DepartamentoMunicipio">
+      <End Role="Departamento" EntitySet="Departamentos" />
+      <End Role="Municipio" EntitySet="Municipios" />
+    </AssociationSet>
+    <AssociationSet Name="DepartamentoUsuario" Association="ADOModel.DepartamentoUsuario">
+      <End Role="Departamento" EntitySet="Departamentos" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <EntitySet Name="Instituciones" EntityType="ADOModel.Institucion" />
+    <EntitySet Name="Cursos" EntityType="ADOModel.Curso" />
+    <AssociationSet Name="InstitucionOfertaAcademica" Association="ADOModel.InstitucionOfertaAcademica">
+      <End Role="Institucion" EntitySet="Instituciones" />
+      <End Role="OfertaAcademica" EntitySet="OfertasAcademicas" />
+    </AssociationSet>
+    <EntitySet Name="Becas" EntityType="ADOModel.Beca" />
+    <AssociationSet Name="InstitucionBeca" Association="ADOModel.InstitucionBeca">
+      <End Role="Institucion" EntitySet="Instituciones" />
+      <End Role="Beca" EntitySet="Becas" />
+    </AssociationSet>
+    <EntitySet Name="OfertasLaborales" EntityType="ADOModel.OfertaLaboral" />
+    <EntitySet Name="Empresas" EntityType="ADOModel.Empresa" />
+    <AssociationSet Name="EmpresaOfertaLaboral" Association="ADOModel.EmpresaOfertaLaboral">
+      <End Role="Empresa" EntitySet="Empresas" />
+      <End Role="OfertaLaboral" EntitySet="OfertasLaborales" />
+    </AssociationSet>
+    <EntitySet Name="PruebasDeAptitudes" EntityType="ADOModel.Prueba" />
+    <EntitySet Name="Generos" EntityType="ADOModel.Genero" />
+    <AssociationSet Name="GeneroUsuario" Association="ADOModel.GeneroUsuario">
+      <End Role="Genero" EntitySet="Generos" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <EntitySet Name="Asesoramientos" EntityType="ADOModel.Asesoramiento" />
+    <AssociationSet Name="UsuarioAsesoramiento" Association="ADOModel.UsuarioAsesoramiento">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Asesoramiento" EntitySet="Asesoramientos" />
+    </AssociationSet>
+    <AssociationSet Name="AsesorAsesoramiento" Association="ADOModel.AsesorAsesoramiento">
+      <End Role="Asesor" EntitySet="AsesoresVocacionales" />
+      <End Role="Asesoramiento" EntitySet="Asesoramientos" />
+    </AssociationSet>
+    <AssociationSet Name="UsuarioResultadoDePrueba" Association="ADOModel.UsuarioResultadoDePrueba">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="ResultadoDePrueba" EntitySet="RegistrosDePruebasDeAptitudes" />
+    </AssociationSet>
+    <AssociationSet Name="PruebaResultadoDePrueba" Association="ADOModel.PruebaResultadoDePrueba">
+      <End Role="Prueba" EntitySet="PruebasDeAptitudes" />
+      <End Role="ResultadoDePrueba" EntitySet="RegistrosDePruebasDeAptitudes" />
+    </AssociationSet>
+    <EntitySet Name="Usuarios_OfertasAcademicas" EntityType="ADOModel.Usuario_OfertaAcademica" />
+    <AssociationSet Name="UsuarioUsuario_OfertaAcademica" Association="ADOModel.UsuarioUsuario_OfertaAcademica">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Usuario_OfertaAcademica" EntitySet="Usuarios_OfertasAcademicas" />
+    </AssociationSet>
+    <AssociationSet Name="OfertaAcademicaUsuario_OfertaAcademica" Association="ADOModel.OfertaAcademicaUsuario_OfertaAcademica">
+      <End Role="OfertaAcademica" EntitySet="OfertasAcademicas" />
+      <End Role="Usuario_OfertaAcademica" EntitySet="Usuarios_OfertasAcademicas" />
+    </AssociationSet>
+    <EntitySet Name="Usuarios_Becas" EntityType="ADOModel.Usuario_Beca" />
+    <AssociationSet Name="UsuarioUsuario_Beca" Association="ADOModel.UsuarioUsuario_Beca">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Usuario_Beca" EntitySet="Usuarios_Becas" />
+    </AssociationSet>
+    <AssociationSet Name="BecaUsuario_Beca" Association="ADOModel.BecaUsuario_Beca">
+      <End Role="Beca" EntitySet="Becas" />
+      <End Role="Usuario_Beca" EntitySet="Usuarios_Becas" />
+    </AssociationSet>
+    <EntitySet Name="Usuarios_OfertasLaborales" EntityType="ADOModel.Usuario_OfertaLaboral" />
+    <AssociationSet Name="UsuarioUsuario_OfertaLaboral" Association="ADOModel.UsuarioUsuario_OfertaLaboral">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Usuario_OfertaLaboral" EntitySet="Usuarios_OfertasLaborales" />
+    </AssociationSet>
+    <AssociationSet Name="OfertaLaboralUsuario_OfertaLaboral" Association="ADOModel.OfertaLaboralUsuario_OfertaLaboral">
+      <End Role="OfertaLaboral" EntitySet="OfertasLaborales" />
+      <End Role="Usuario_OfertaLaboral" EntitySet="Usuarios_OfertasLaborales" />
+    </AssociationSet>
+    <EntitySet Name="Usuarios_Cursos" EntityType="ADOModel.Usuario_Curso" />
+    <AssociationSet Name="CursoUsuario_Curso" Association="ADOModel.CursoUsuario_Curso">
+      <End Role="Curso" EntitySet="Cursos" />
+      <End Role="Usuario_Curso" EntitySet="Usuarios_Cursos" />
+    </AssociationSet>
+    <AssociationSet Name="UsuarioUsuario_Curso" Association="ADOModel.UsuarioUsuario_Curso">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Usuario_Curso" EntitySet="Usuarios_Cursos" />
+    </AssociationSet>
+    <EntitySet Name="Tipos" EntityType="ADOModel.Tipo" />
+    <AssociationSet Name="TipoUsuario" Association="ADOModel.TipoUsuario">
+      <End Role="Tipo" EntitySet="Tipos" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="CursoOfertaAcademica" Association="ADOModel.CursoOfertaAcademica">
+      <End Role="Curso" EntitySet="Cursos" />
+      <End Role="OfertaAcademica" EntitySet="OfertasAcademicas" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Apellido" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="GeneroId" Type="Int32" Nullable="false" />
+    <Property Name="DepartamentoId" Type="Int32" Nullable="false" />
+    <Property Name="TipoId" Type="Int32" Nullable="false" />
+    <Property Name="PreferenciasVocacionales" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Departamento" Relationship="ADOModel.DepartamentoUsuario" FromRole="Usuario" ToRole="Departamento" />
+    <NavigationProperty Name="Genero" Relationship="ADOModel.GeneroUsuario" FromRole="Usuario" ToRole="Genero" />
+    <NavigationProperty Name="Asesoramientos" Relationship="ADOModel.UsuarioAsesoramiento" FromRole="Usuario" ToRole="Asesoramiento" />
+    <NavigationProperty Name="ResultadosDePruebas" Relationship="ADOModel.UsuarioResultadoDePrueba" FromRole="Usuario" ToRole="ResultadoDePrueba" />
+    <NavigationProperty Name="Usuarios_OfertasAcademicas" Relationship="ADOModel.UsuarioUsuario_OfertaAcademica" FromRole="Usuario" ToRole="Usuario_OfertaAcademica" />
+    <NavigationProperty Name="Usuarios_Becas" Relationship="ADOModel.UsuarioUsuario_Beca" FromRole="Usuario" ToRole="Usuario_Beca" />
+    <NavigationProperty Name="Usuarios_OfertasLaborales" Relationship="ADOModel.UsuarioUsuario_OfertaLaboral" FromRole="Usuario" ToRole="Usuario_OfertaLaboral" />
+    <NavigationProperty Name="Usuarios_Cursos" Relationship="ADOModel.UsuarioUsuario_Curso" FromRole="Usuario" ToRole="Usuario_Curso" />
+    <NavigationProperty Name="Tipo" Relationship="ADOModel.TipoUsuario" FromRole="Usuario" ToRole="Tipo" />
+  </EntityType>
+  <EntityType Name="Asesor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Apellido" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Especialidad" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="DisponibilidadDias" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="DisponibilidadHoras" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Asesoramientos" Relationship="ADOModel.AsesorAsesoramiento" FromRole="Asesor" ToRole="Asesoramiento" />
+  </EntityType>
+  <EntityType Name="OfertaAcademica">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="CursoId" Type="Int32" Nullable="false" />
+    <Property Name="InstitucionId" Type="Int32" Nullable="false" />
+    <Property Name="FechaDeInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaDeFin" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Institucion" Relationship="ADOModel.InstitucionOfertaAcademica" FromRole="OfertaAcademica" ToRole="Institucion" />
+    <NavigationProperty Name="Usuarios_OfertasAcademicas" Relationship="ADOModel.OfertaAcademicaUsuario_OfertaAcademica" FromRole="OfertaAcademica" ToRole="Usuario_OfertaAcademica" />
+    <NavigationProperty Name="Curso" Relationship="ADOModel.CursoOfertaAcademica" FromRole="OfertaAcademica" ToRole="Curso" />
+  </EntityType>
+  <EntityType Name="ResultadoDePrueba">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <Property Name="PruebaId" Type="Int32" Nullable="false" />
+    <Property Name="Vocacion" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Puntuacion" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Comentarios" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Usuario" Relationship="ADOModel.UsuarioResultadoDePrueba" FromRole="ResultadoDePrueba" ToRole="Usuario" />
+    <NavigationProperty Name="Prueba" Relationship="ADOModel.PruebaResultadoDePrueba" FromRole="ResultadoDePrueba" ToRole="Prueba" />
+  </EntityType>
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Municipios" Relationship="ADOModel.DepartamentoMunicipio" FromRole="Departamento" ToRole="Municipio" />
+    <NavigationProperty Name="Usuarios" Relationship="ADOModel.DepartamentoUsuario" FromRole="Departamento" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Municipio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartamentoId" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Departamento" Relationship="ADOModel.DepartamentoMunicipio" FromRole="Municipio" ToRole="Departamento" />
+  </EntityType>
+  <Association Name="DepartamentoMunicipio">
+    <End Type="ADOModel.Departamento" Role="Departamento" Multiplicity="1" />
+    <End Type="ADOModel.Municipio" Role="Municipio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Municipio">
+        <PropertyRef Name="DepartamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepartamentoUsuario">
+    <End Type="ADOModel.Departamento" Role="Departamento" Multiplicity="1" />
+    <End Type="ADOModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="DepartamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Institucion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Direccion" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Telefono" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Enlace" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="OfertasAcademicas" Relationship="ADOModel.InstitucionOfertaAcademica" FromRole="Institucion" ToRole="OfertaAcademica" />
+    <NavigationProperty Name="Becas" Relationship="ADOModel.InstitucionBeca" FromRole="Institucion" ToRole="Beca" />
+  </EntityType>
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Usuarios_Cursos" Relationship="ADOModel.CursoUsuario_Curso" FromRole="Curso" ToRole="Usuario_Curso" />
+    <NavigationProperty Name="OfertasAcademicas" Relationship="ADOModel.CursoOfertaAcademica" FromRole="Curso" ToRole="OfertaAcademica" />
+  </EntityType>
+  <Association Name="InstitucionOfertaAcademica">
+    <End Type="ADOModel.Institucion" Role="Institucion" Multiplicity="1" />
+    <End Type="ADOModel.OfertaAcademica" Role="OfertaAcademica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Institucion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfertaAcademica">
+        <PropertyRef Name="InstitucionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Beca">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Institucion" Relationship="ADOModel.InstitucionBeca" FromRole="Beca" ToRole="Institucion" />
+    <Property Name="InstitucionId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuarios_Becas" Relationship="ADOModel.BecaUsuario_Beca" FromRole="Beca" ToRole="Usuario_Beca" />
+  </EntityType>
+  <Association Name="InstitucionBeca">
+    <End Type="ADOModel.Institucion" Role="Institucion" Multiplicity="1" />
+    <End Type="ADOModel.Beca" Role="Beca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Institucion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Beca">
+        <PropertyRef Name="InstitucionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="OfertaLaboral">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Habilidades" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Empresa" Relationship="ADOModel.EmpresaOfertaLaboral" FromRole="OfertaLaboral" ToRole="Empresa" />
+    <Property Name="Salario" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="EmpresaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuarios_OfertasLaborales" Relationship="ADOModel.OfertaLaboralUsuario_OfertaLaboral" FromRole="OfertaLaboral" ToRole="Usuario_OfertaLaboral" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Direccion" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Telefono" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Enlace" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="OfertasLaborales" Relationship="ADOModel.EmpresaOfertaLaboral" FromRole="Empresa" ToRole="OfertaLaboral" />
+  </EntityType>
+  <Association Name="EmpresaOfertaLaboral">
+    <End Type="ADOModel.Empresa" Role="Empresa" Multiplicity="1" />
+    <End Type="ADOModel.OfertaLaboral" Role="OfertaLaboral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfertaLaboral">
+        <PropertyRef Name="EmpresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Prueba">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ResultadosDePruebas" Relationship="ADOModel.PruebaResultadoDePrueba" FromRole="Prueba" ToRole="ResultadoDePrueba" />
+  </EntityType>
+  <EntityType Name="Genero">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Usuarios" Relationship="ADOModel.GeneroUsuario" FromRole="Genero" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="GeneroUsuario">
+    <End Type="ADOModel.Genero" Role="Genero" Multiplicity="1" />
+    <End Type="ADOModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genero">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="GeneroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Asesoramiento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Usuario" Relationship="ADOModel.UsuarioAsesoramiento" FromRole="Asesoramiento" ToRole="Usuario" />
+    <Property Name="AsesorId" Type="Int32" Nullable="false" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Asesor" Relationship="ADOModel.AsesorAsesoramiento" FromRole="Asesoramiento" ToRole="Asesor" />
+    <Property Name="Comentarios" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <Association Name="UsuarioAsesoramiento">
+    <End Type="ADOModel.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="ADOModel.Asesoramiento" Role="Asesoramiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Asesoramiento">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AsesorAsesoramiento">
+    <End Type="ADOModel.Asesor" Role="Asesor" Multiplicity="1" />
+    <End Type="ADOModel.Asesoramiento" Role="Asesoramiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Asesor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Asesoramiento">
+        <PropertyRef Name="AsesorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsuarioResultadoDePrueba">
+    <End Type="ADOModel.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="ADOModel.ResultadoDePrueba" Role="ResultadoDePrueba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResultadoDePrueba">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PruebaResultadoDePrueba">
+    <End Type="ADOModel.Prueba" Role="Prueba" Multiplicity="1" />
+    <End Type="ADOModel.ResultadoDePrueba" Role="ResultadoDePrueba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prueba">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResultadoDePrueba">
+        <PropertyRef Name="PruebaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Usuario_OfertaAcademica">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Usuario" Relationship="ADOModel.UsuarioUsuario_OfertaAcademica" FromRole="Usuario_OfertaAcademica" ToRole="Usuario" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="OfertaAcademica" Relationship="ADOModel.OfertaAcademicaUsuario_OfertaAcademica" FromRole="Usuario_OfertaAcademica" ToRole="OfertaAcademica" />
+    <Property Name="OfertaAcademicaId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="UsuarioUsuario_OfertaAcademica">
+    <End Type="ADOModel.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="ADOModel.Usuario_OfertaAcademica" Role="Usuario_OfertaAcademica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario_OfertaAcademica">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OfertaAcademicaUsuario_OfertaAcademica">
+    <End Type="ADOModel.OfertaAcademica" Role="OfertaAcademica" Multiplicity="1" />
+    <End Type="ADOModel.Usuario_OfertaAcademica" Role="Usuario_OfertaAcademica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfertaAcademica">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario_OfertaAcademica">
+        <PropertyRef Name="OfertaAcademicaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Usuario_Beca">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Usuario" Relationship="ADOModel.UsuarioUsuario_Beca" FromRole="Usuario_Beca" ToRole="Usuario" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Beca" Relationship="ADOModel.BecaUsuario_Beca" FromRole="Usuario_Beca" ToRole="Beca" />
+    <Property Name="BecaId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="UsuarioUsuario_Beca">
+    <End Type="ADOModel.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="ADOModel.Usuario_Beca" Role="Usuario_Beca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario_Beca">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BecaUsuario_Beca">
+    <End Type="ADOModel.Beca" Role="Beca" Multiplicity="1" />
+    <End Type="ADOModel.Usuario_Beca" Role="Usuario_Beca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beca">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario_Beca">
+        <PropertyRef Name="BecaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Usuario_OfertaLaboral">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Usuario" Relationship="ADOModel.UsuarioUsuario_OfertaLaboral" FromRole="Usuario_OfertaLaboral" ToRole="Usuario" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="OfertaLaboral" Relationship="ADOModel.OfertaLaboralUsuario_OfertaLaboral" FromRole="Usuario_OfertaLaboral" ToRole="OfertaLaboral" />
+    <Property Name="OfertaLaboralId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="UsuarioUsuario_OfertaLaboral">
+    <End Type="ADOModel.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="ADOModel.Usuario_OfertaLaboral" Role="Usuario_OfertaLaboral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario_OfertaLaboral">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OfertaLaboralUsuario_OfertaLaboral">
+    <End Type="ADOModel.OfertaLaboral" Role="OfertaLaboral" Multiplicity="1" />
+    <End Type="ADOModel.Usuario_OfertaLaboral" Role="Usuario_OfertaLaboral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfertaLaboral">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario_OfertaLaboral">
+        <PropertyRef Name="OfertaLaboralId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Usuario_Curso">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Curso" Relationship="ADOModel.CursoUsuario_Curso" FromRole="Usuario_Curso" ToRole="Curso" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <Property Name="CursoId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="ADOModel.UsuarioUsuario_Curso" FromRole="Usuario_Curso" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="CursoUsuario_Curso">
+    <End Type="ADOModel.Curso" Role="Curso" Multiplicity="1" />
+    <End Type="ADOModel.Usuario_Curso" Role="Usuario_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario_Curso">
+        <PropertyRef Name="CursoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsuarioUsuario_Curso">
+    <End Type="ADOModel.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="ADOModel.Usuario_Curso" Role="Usuario_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario_Curso">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Tipo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Usuarios" Relationship="ADOModel.TipoUsuario" FromRole="Tipo" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="TipoUsuario">
+    <End Type="ADOModel.Tipo" Role="Tipo" Multiplicity="1" />
+    <End Type="ADOModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="TipoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CursoOfertaAcademica">
+    <End Type="ADOModel.Curso" Role="Curso" Multiplicity="1" />
+    <End Type="ADOModel.OfertaAcademica" Role="OfertaAcademica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfertaAcademica">
+        <PropertyRef Name="CursoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

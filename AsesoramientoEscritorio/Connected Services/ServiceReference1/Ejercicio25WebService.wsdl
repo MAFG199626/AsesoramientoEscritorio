@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Logueo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogueoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogueoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AplicarOfertasLaborales">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idOfertaLaboral" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="usuarioid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AplicarOfertasLaboralesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AplicarOfertasLaboralesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AplicarOfertasAcademicas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idOfertaAcademica" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="usuarioid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AplicarOfertasAcademicasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AplicarOfertasAcademicasResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaOfertaAcademica">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaOfertaAcademicaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaOfertaAcademicaResult" type="tns:ArrayOfOfertaAcademicaSW" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOfertaAcademicaSW">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OfertaAcademicaSW" nillable="true" type="tns:OfertaAcademicaSW" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OfertaAcademicaSW">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreCurso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreInsti" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaDeInicio" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaDeFin" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListaBecas">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaBecasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaBecasResult" type="tns:ArrayOfBecaSW" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBecaSW">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BecaSW" nillable="true" type="tns:BecaSW" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BecaSW">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstitucionNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DireccionInsti" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListaOfertasLaboral">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaOfertasLaboralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaOfertasLaboralResult" type="tns:ArrayOfOfertaLaboralSW" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOfertaLaboralSW">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OfertaLaboralSW" nillable="true" type="tns:OfertaLaboralSW" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OfertaLaboralSW">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Habilidades" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Salario" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreEmp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListaUsuarioOfertasLaboral">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaUsuarioOfertasLaboralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaUsuarioOfertasLaboralResult" type="tns:ArrayOfUsuarioOfertaLaboralListarSW" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUsuarioOfertaLaboralListarSW">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UsuarioOfertaLaboralListarSW" nillable="true" type="tns:UsuarioOfertaLaboralListarSW" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UsuarioOfertaLaboralListarSW">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OfertaLaboralNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmpresaNombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListaUsuarioOfertaAcademica">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaUsuarioOfertaAcademicaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaUsuarioOfertaAcademicaResult" type="tns:ArrayOfUsuarioOfertaAcademicaListarSW" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUsuarioOfertaAcademicaListarSW">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UsuarioOfertaAcademicaListarSW" nillable="true" type="tns:UsuarioOfertaAcademicaListarSW" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UsuarioOfertaAcademicaListarSW">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreOfertaAcademica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CursoNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstitucionNombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerIdUsuarioPorCorreo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerIdUsuarioPorCorreoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerIdUsuarioPorCorreoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogueoSoapIn">
+    <wsdl:part name="parameters" element="tns:Logueo" />
+  </wsdl:message>
+  <wsdl:message name="LogueoSoapOut">
+    <wsdl:part name="parameters" element="tns:LogueoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AplicarOfertasLaboralesSoapIn">
+    <wsdl:part name="parameters" element="tns:AplicarOfertasLaborales" />
+  </wsdl:message>
+  <wsdl:message name="AplicarOfertasLaboralesSoapOut">
+    <wsdl:part name="parameters" element="tns:AplicarOfertasLaboralesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AplicarOfertasAcademicasSoapIn">
+    <wsdl:part name="parameters" element="tns:AplicarOfertasAcademicas" />
+  </wsdl:message>
+  <wsdl:message name="AplicarOfertasAcademicasSoapOut">
+    <wsdl:part name="parameters" element="tns:AplicarOfertasAcademicasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaOfertaAcademicaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaOfertaAcademica" />
+  </wsdl:message>
+  <wsdl:message name="ListaOfertaAcademicaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaOfertaAcademicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaBecasSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaBecas" />
+  </wsdl:message>
+  <wsdl:message name="ListaBecasSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaBecasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaOfertasLaboralSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaOfertasLaboral" />
+  </wsdl:message>
+  <wsdl:message name="ListaOfertasLaboralSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaOfertasLaboralResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaUsuarioOfertasLaboralSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaUsuarioOfertasLaboral" />
+  </wsdl:message>
+  <wsdl:message name="ListaUsuarioOfertasLaboralSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaUsuarioOfertasLaboralResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaUsuarioOfertaAcademicaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaUsuarioOfertaAcademica" />
+  </wsdl:message>
+  <wsdl:message name="ListaUsuarioOfertaAcademicaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaUsuarioOfertaAcademicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerIdUsuarioPorCorreoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerIdUsuarioPorCorreo" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerIdUsuarioPorCorreoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerIdUsuarioPorCorreoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Ejercicio25WebServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logueo">
+      <wsdl:input message="tns:LogueoSoapIn" />
+      <wsdl:output message="tns:LogueoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AplicarOfertasLaborales">
+      <wsdl:input message="tns:AplicarOfertasLaboralesSoapIn" />
+      <wsdl:output message="tns:AplicarOfertasLaboralesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AplicarOfertasAcademicas">
+      <wsdl:input message="tns:AplicarOfertasAcademicasSoapIn" />
+      <wsdl:output message="tns:AplicarOfertasAcademicasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaOfertaAcademica">
+      <wsdl:input message="tns:ListaOfertaAcademicaSoapIn" />
+      <wsdl:output message="tns:ListaOfertaAcademicaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaBecas">
+      <wsdl:input message="tns:ListaBecasSoapIn" />
+      <wsdl:output message="tns:ListaBecasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaOfertasLaboral">
+      <wsdl:input message="tns:ListaOfertasLaboralSoapIn" />
+      <wsdl:output message="tns:ListaOfertasLaboralSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaUsuarioOfertasLaboral">
+      <wsdl:input message="tns:ListaUsuarioOfertasLaboralSoapIn" />
+      <wsdl:output message="tns:ListaUsuarioOfertasLaboralSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaUsuarioOfertaAcademica">
+      <wsdl:input message="tns:ListaUsuarioOfertaAcademicaSoapIn" />
+      <wsdl:output message="tns:ListaUsuarioOfertaAcademicaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIdUsuarioPorCorreo">
+      <wsdl:input message="tns:ObtenerIdUsuarioPorCorreoSoapIn" />
+      <wsdl:output message="tns:ObtenerIdUsuarioPorCorreoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Ejercicio25WebServiceSoap" type="tns:Ejercicio25WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logueo">
+      <soap:operation soapAction="http://tempuri.org/Logueo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AplicarOfertasLaborales">
+      <soap:operation soapAction="http://tempuri.org/AplicarOfertasLaborales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AplicarOfertasAcademicas">
+      <soap:operation soapAction="http://tempuri.org/AplicarOfertasAcademicas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaOfertaAcademica">
+      <soap:operation soapAction="http://tempuri.org/ListaOfertaAcademica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaBecas">
+      <soap:operation soapAction="http://tempuri.org/ListaBecas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaOfertasLaboral">
+      <soap:operation soapAction="http://tempuri.org/ListaOfertasLaboral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaUsuarioOfertasLaboral">
+      <soap:operation soapAction="http://tempuri.org/ListaUsuarioOfertasLaboral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaUsuarioOfertaAcademica">
+      <soap:operation soapAction="http://tempuri.org/ListaUsuarioOfertaAcademica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIdUsuarioPorCorreo">
+      <soap:operation soapAction="http://tempuri.org/ObtenerIdUsuarioPorCorreo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Ejercicio25WebServiceSoap12" type="tns:Ejercicio25WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logueo">
+      <soap12:operation soapAction="http://tempuri.org/Logueo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AplicarOfertasLaborales">
+      <soap12:operation soapAction="http://tempuri.org/AplicarOfertasLaborales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AplicarOfertasAcademicas">
+      <soap12:operation soapAction="http://tempuri.org/AplicarOfertasAcademicas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaOfertaAcademica">
+      <soap12:operation soapAction="http://tempuri.org/ListaOfertaAcademica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaBecas">
+      <soap12:operation soapAction="http://tempuri.org/ListaBecas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaOfertasLaboral">
+      <soap12:operation soapAction="http://tempuri.org/ListaOfertasLaboral" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaUsuarioOfertasLaboral">
+      <soap12:operation soapAction="http://tempuri.org/ListaUsuarioOfertasLaboral" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaUsuarioOfertaAcademica">
+      <soap12:operation soapAction="http://tempuri.org/ListaUsuarioOfertaAcademica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIdUsuarioPorCorreo">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerIdUsuarioPorCorreo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Ejercicio25WebService">
+    <wsdl:port name="Ejercicio25WebServiceSoap" binding="tns:Ejercicio25WebServiceSoap">
+      <soap:address location="http://sitioejercicio25.somee.com/Services/Ejercicio25WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Ejercicio25WebServiceSoap12" binding="tns:Ejercicio25WebServiceSoap12">
+      <soap12:address location="http://sitioejercicio25.somee.com/Services/Ejercicio25WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
